@@ -1,2 +1,2 @@
 # RedditUserDownloader
- python cli to selectively download a reddit users posts
+ python cli and library to selectively download a reddit users posts
