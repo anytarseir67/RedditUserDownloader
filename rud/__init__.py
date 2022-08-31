@@ -1,3 +1,3 @@
-from . import downloader
+from .downloader import Downloader, Post, ConnectionFailed
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"

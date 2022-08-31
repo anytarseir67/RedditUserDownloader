@@ -7,6 +7,13 @@ import asyncio
 from asyncprawcore import ResponseException
 
 class ConnectionFailed(Exception):
+    """raised when reddit responds in an unexpected way.
+
+    Parameters
+    ----------
+    Exception: :class:`str`
+        description of the exception.
+    """
     pass
 
 class Post:
@@ -15,9 +22,9 @@ class Post:
     Attributes
     -----------
     src: :class:`str`
-        source url of the post. (typically `i.redd.it`)
+        source url of the post. (typically ``i.redd.it``)
     url: :class:`str`
-        permalink to the post. (`reddit.com/r/...`)
+        permalink to the post. (``reddit.com/r/...``)
     title: :class:`str`
         title of the post.
     subreddit: :class:`str`
@@ -30,11 +37,32 @@ class Post:
         self.subreddit = subreddit
     
 class Downloader:
+    """class to facilitate downloading of a user's posts.
+
+    Parameters
+    ----------
+    client_id: :class:`str`
+        client id to connect with.
+    client_secret: :class:`str`
+        client secret to authenticate with.
+    """
     def __init__(self, client_id: str, client_secret: str) -> None:
         self._client_id = client_id
         self._client_secret = client_secret
 
     async def auth(self, useragent: str) -> bool:
+        """verify our connection to reddit.
+
+        Parameters
+        ----------
+        useragent: :class:`str`
+            the useragent that should be sent with out requests.
+
+        Returns
+        -------
+        :class:`bool`
+            return ``True`` when connection is successful, otherwise returns ``False``.
+        """
         self.reddit = asyncpraw.Reddit(client_id=self._client_id, client_secret=self._client_secret, user_agent=useragent)
         try:
             await self.reddit.user.me()
@@ -43,7 +71,7 @@ class Downloader:
         return True
 
     async def callback(self, post: Post) -> bool:
-        """method called to determine if the given post should be downloaded. (intended to be overwritten, defaults to always `True`)
+        """method called to determine if the given post should be downloaded. (intended to be overwritten, defaults to always ``True``)
 
         Parameters
         ----------
@@ -53,12 +81,12 @@ class Downloader:
         Returns
         -------
         :class:`bool`
-            when `True`, the post will be downloaded, when `False` the post will be skipped.
+            when ``True``, the post will be downloaded, when ``False`` the post will be skipped.
         """
         return True
 
     async def download(self, post: Post, name: str) -> None:
-        """_summary_
+        """method that downloads the images related to a given post.
 
         Parameters
         ----------
@@ -133,7 +161,7 @@ class Downloader:
         
         Raises
         ------
-        :class:`ConnectionFailed`
+        :exc:`ConnectionFailed`
             reddit did not respond the way we expect.
         """
         auth = await self.auth("RedditUserDownloader")
