@@ -49,6 +49,8 @@ extensions = [
     "resourcelinks",
     "nitpick_file_ignorer",
     "myst_parser",
+    "sphinxarg.ext",
+    "sphinxcontrib.restbuilder"
 ]
 
 autodoc_member_order = 'bysource'

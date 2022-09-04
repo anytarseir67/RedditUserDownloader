@@ -101,7 +101,6 @@ class Downloader:
         urls = []
 
         if hasattr(post, 'gallery_data'):
-            print('gallery')
             async with self.session.get(post.url+'.json') as resp:
                 dat = await resp.json()
             ids = [i['media_id'] for i in post.gallery_data['items']]
@@ -118,7 +117,6 @@ class Downloader:
             pass
 
         for i, url in enumerate(urls):
-            print(url)
             _ = '.' + url.split('.')[-1].split('/')[0]
             ext = _ or 'png'
             num = str(i) if i != 0 else ''

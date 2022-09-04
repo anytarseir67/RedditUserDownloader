@@ -3,11 +3,12 @@ Command line
 
 Usage:
 ~~~~~~~
+    .. argparse::
+        :module: rud.cli
+        :func: collect_args
+        :prog: rud
 
-    * **input** - the input should be a path to any supported media (image/gif/video).
+        -f : @replace
+            takes **cid** and **csec**, saves them to the library’s config.py
 
-    * **output** - destination path for the output.
-
-    * **width** - optional width (in characters) of the output.
-
-    ``asciipy [input_file] [output_file] [width] (optional, default=80)``
+    .. ``asciipy [input_file] [output_file] [width] (optional, default=80)``

@@ -1,2 +1,0 @@
-cid = None
-csec = None
