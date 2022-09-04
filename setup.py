@@ -24,6 +24,6 @@ setup(
     packages=["rud"],
     install_requires=requirements,
     entry_points={
-        "console_scripts": ["rud=rud.__main__:main"],
+        "console_scripts": ["rud=rud.cli:main"],
     },
 )

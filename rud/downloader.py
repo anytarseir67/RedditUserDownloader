@@ -30,11 +30,12 @@ class Post:
     subreddit: :class:`str`
         name of the subreddit this post belongs to.
     """
-    def __init__(self, src: str, url: str, title: str, subreddit: str):
+    def __init__(self, src: str, url: str, title: str, subreddit: str, _id: str):
         self.src = src
         self.url = 'https://www.reddit.com' + url
         self.title = title
         self.subreddit = subreddit
+        self.id = _id
     
 class Downloader:
     """class to facilitate downloading of a user's posts.
@@ -147,7 +148,7 @@ class Downloader:
                 break
             await post.load()
             await post.subreddit.load()
-            yield Post(post.url, post.permalink, post.title, post.subreddit.display_name)
+            yield Post(post.url, post.permalink, post.title, post.subreddit.display_name, post.id)
 
     async def run(self, name: str) -> None:
         """main loop of the default implementation.
