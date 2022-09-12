@@ -2,4 +2,4 @@
 # RedditUserDownloader
  python cli and library to selectively download a reddit users posts
 
- ## documentation can be found [here](https://github.com/anytarseir67/RedditUserDownloader/tree/main/docs) <!-- temp !-->
+ ## documentation can be found at https://reddituserdownloader.readthedocs.io/
