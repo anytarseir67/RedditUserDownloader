@@ -26,4 +26,14 @@ setup(
     entry_points={
         "console_scripts": ["rud=rud.cli:main"],
     },
+    extras_require={
+        'docs': [
+            'sphinx',
+            'sphinxcontrib_trio',
+            'sphinxcontrib-websupport',
+            'typing-extensions',
+            'myst_parser',
+            'sphinx-argparse'
+        ],
+    },
 )
