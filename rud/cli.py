@@ -1,4 +1,4 @@
-from .downloader import Downloader, Post
+from rud.downloader import Downloader, Post
 import asyncio
 import sys
 import os
