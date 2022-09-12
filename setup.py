@@ -19,7 +19,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     author="anytarseir67",
-    url="https://github.com/anytarseir67/rud",
+    url="https://github.com/anytarseir67/RedditUserDownloader",
     license="GPLv3",
     packages=["rud"],
     install_requires=requirements,
