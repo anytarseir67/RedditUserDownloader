@@ -9,22 +9,10 @@ from typing import Dict
 skip_downloaded = True
 skip_skipped = False
 
-try:
-    from . import downloaded
-    downloaded = Writable(downloaded)
-except ImportError:
-    with open(os.path.dirname(__file__)+'/downloaded.py', 'w') as f:
-        f.write(f"")
-    from . import downloaded
-    downloaded = Writable(downloaded)
-    downloaded.posts: Dict[str, bool] = {}
-    
-try:
-    from . import config
-except ImportError:
-    with open(os.path.dirname(__file__)+'/config.py', 'w') as f:
-        f.write(f"cid = \"None\"\ncsec = \"None\"")
-    from . import config
+from . import downloaded
+downloaded = Writable(downloaded)
+
+from . import config
 
 class NoAuth(Exception):
     pass
