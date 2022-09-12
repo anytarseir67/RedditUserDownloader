@@ -1,2 +1,2 @@
-from rud import cli
+from . import cli
 cli.main()
