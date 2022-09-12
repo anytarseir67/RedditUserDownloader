@@ -10,5 +10,3 @@ Usage:
 
         -f : @replace
             takes **cid** and **csec**, saves them to the library’s config.py
-
-    .. ``asciipy [input_file] [output_file] [width] (optional, default=80)``
